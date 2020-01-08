@@ -12,7 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var appCoordinator: AppCoordinator?
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        //If your app relies on the state restoration machinery to restore its view controllers, always show your app’s window from this method.
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator?.start()
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
